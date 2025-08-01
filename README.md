@@ -1,4 +1,4 @@
-Este repositório contem nosso trabalho PIT, para entrega de forma acadêmica para a conclusão de CURSO=
+Este repositório contem nosso trabalho PIT, para entrega de forma acadêmica para a conclusão de CURSO
 
 ## Integrantes do Grupo
 

@@ -1,0 +1,21 @@
+- [x] Analisar requisitos e organizar informações dos integrantes
+- [x] Criar arquivo README.md com estrutura adequada
+- [x] Tela de cadastaro
+- [ ] Tela de alcance
+- [ ] Tela de pasta pessoal de armazenamento
+- [ ] Tela para redefinir senha
+- [ ] Sistema de notificações
+- [ ] Adicionar uma configuração para personalizar a interfaceww
+- [ ] Definir Métricas de USO
+- [ ] Configuração com diferentes IDIOMAS
+- [ ] Tela com relatórios PDF
+- [ ] Criar uma função de busca
+- [ ] Tela com foruns
+- [ ] Tela com redes sociais dos artistas
+- [ ] Ter armazenamento para midias
+- [ ] Tela com cursos de produção musical
+- [ ] Tela com dashboards para o artista
+- [ ] Usuário criar enquetes
+- [ ] Artista com seu spotify linkado
+- [ ] Gerenciar histórico de atividade
+- [ ] IA para o site

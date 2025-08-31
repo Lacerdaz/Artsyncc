@@ -1,15 +1,15 @@
 - [x] Analisar requisitos e organizar informações dos integrantes
 - [x] Criar arquivo README.md com estrutura adequada
 - [x] Tela de cadastaro
-- [ ] Tela de alcance
-- [ ] Tela de pasta pessoal de armazenamento
-- [ ] Tela para redefinir senha
-- [ ] Sistema de notificações
-- [ ] Adicionar uma configuração para personalizar a interfaceww
-- [ ] Definir Métricas de USO
-- [ ] Configuração com diferentes IDIOMAS
-- [ ] Tela com relatórios PDF
-- [ ] Criar uma função de busca
+- [x] Tela de alcance
+- [x] Tela de pasta pessoal de armazenamento
+- [x] Tela para redefinir senha
+- [x] Sistema de notificações
+- [x] Adicionar uma configuração para personalizar a interfaceww
+- [x] Definir Métricas de USO
+- [x] Configuração com diferentes IDIOMAS
+- [x] Tela com relatórios PDF
+- [x] Criar uma função de busca
 - [ ] Tela com foruns
 - [ ] Tela com redes sociais dos artistas
 - [ ] Ter armazenamento para midias

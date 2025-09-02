@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>artSync - Dashboard</title>
+    <title>artSync - Busca</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -30,16 +30,21 @@
         <main class="content-area">
             <div class="container">
                 <div class="form-container dashboard-container">
-                    <h2 class="form-title">Bem-vindo ao seu Dashboard!</h2>
-                    <p>Aqui você terá uma visão geral da sua carreira. Métricas de uso e notificações aparecerão aqui.</p>
+                    <h2 class="form-title">Busca</h2>
+                    <p>Encontre arquivos em sua pasta de armazenamento pelo nome.</p>
                     <div class="dashboard-widgets">
                         <div class="widget">
-                            <h3>Notificações Recentes</h3>
-                            <p>Nenhuma notificação nova.</p>
+                            <h3>Buscar Arquivos</h3>
+                            <form class="search-form">
+                                <input type="search" id="searchInput" placeholder="Digite o nome do arquivo...">
+                                <button type="submit" class="btn-cadastrar">Buscar</button>
+                            </form>
                         </div>
                         <div class="widget">
-                            <h3>Métricas de Uso</h3>
-                            <p>Em breve: Gráficos de atividade.</p>
+                            <h3>Resultados da Busca</h3>
+                            <ul class="search-results-list">
+                                <li>Nenhum resultado encontrado.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -53,5 +58,4 @@
     <script src="assets/js/script.js"></script>
 </body>
 </html>
-
 

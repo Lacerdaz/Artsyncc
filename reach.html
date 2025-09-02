@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>artSync - Alcance</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="main-wrapper">
+        <header class="main-header">
+            <div class="logo-section">
+                <h1 class="logo">artSync</h1>
+                <div class="brush-icon">🖌️</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="reach.html">Alcance</a></li>
+                    <li><a href="storage.html">Armazenamento</a></li>
+                    <li><a href="reports.html">Relatórios</a></li>
+                    <li><a href="search.html">Busca</a></li>
+                    <li><a href="settings.html">Configurações</a></li>
+                    <li><a href="notifications.html">Notificações</a></li>
+                    <li><a href="login.html">Sair</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="content-area">
+            <div class="container">
+                <div class="form-container dashboard-container">
+                    <h2 class="form-title">Alcance</h2>
+                    <p>Monitore o crescimento e engajamento do seu perfil artístico.</p>
+                    <div class="dashboard-widgets">
+                        <div class="widget chart-widget">
+                            <h3>Crescimento de Seguidores</h3>
+                            <canvas id="followersChart" width="400" height="200"></canvas>
+                        </div>
+                        <div class="widget chart-widget">
+                            <h3>Engajamento Mensal</h3>
+                            <canvas id="engagementChart" width="400" height="200"></canvas>
+                        </div>
+                        <div class="widget">
+                            <h3>Estatísticas Gerais</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-number">2.5K</span>
+                                    <span class="stat-label">Seguidores</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">15.8%</span>
+                                    <span class="stat-label">Taxa de Engajamento</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">342</span>
+                                    <span class="stat-label">Posts este mês</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">1.2K</span>
+                                    <span class="stat-label">Curtidas médias</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2025 artSync. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>artSync - Dashboard</title>
+    <title>artSync - Armazenamento</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -30,16 +30,23 @@
         <main class="content-area">
             <div class="container">
                 <div class="form-container dashboard-container">
-                    <h2 class="form-title">Bem-vindo ao seu Dashboard!</h2>
-                    <p>Aqui você terá uma visão geral da sua carreira. Métricas de uso e notificações aparecerão aqui.</p>
+                    <h2 class="form-title">Armazenamento Pessoal</h2>
+                    <p>Gerencie seus arquivos e documentos importantes aqui.</p>
                     <div class="dashboard-widgets">
                         <div class="widget">
-                            <h3>Notificações Recentes</h3>
-                            <p>Nenhuma notificação nova.</p>
+                            <h3>Upload de Arquivos</h3>
+                            <form class="upload-form">
+                                <input type="file" id="fileUpload" name="fileUpload">
+                                <button type="submit" class="btn-cadastrar">Upload</button>
+                            </form>
                         </div>
                         <div class="widget">
-                            <h3>Métricas de Uso</h3>
-                            <p>Em breve: Gráficos de atividade.</p>
+                            <h3>Meus Arquivos</h3>
+                            <ul class="file-list">
+                                <li>Documento_Artista.pdf <a href="#">Ver</a> <a href="#">Excluir</a></li>
+                                <li>Portifolio_2024.zip <a href="#">Ver</a> <a href="#">Excluir</a></li>
+                                <li>Musica_Nova.mp3 <a href="#">Ver</a> <a href="#">Excluir</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -53,5 +60,4 @@
     <script src="assets/js/script.js"></script>
 </body>
 </html>
-
 

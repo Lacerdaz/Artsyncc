@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>artSync - Relatórios</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <header class="main-header">
+            <div class="logo-section">
+                <h1 class="logo">artSync</h1>
+                <div class="brush-icon">🖌️</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="reach.html">Alcance</a></li>
+                    <li><a href="storage.html">Armazenamento</a></li>
+                    <li><a href="reports.html">Relatórios</a></li>
+                    <li><a href="search.html">Busca</a></li>
+                    <li><a href="settings.html">Configurações</a></li>
+                    <li><a href="notifications.html">Notificações</a></li>
+                    <li><a href="login.html">Sair</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="content-area">
+            <div class="container">
+                <div class="form-container dashboard-container">
+                    <h2 class="form-title">Relatórios em PDF</h2>
+                    <p>Gere relatórios em PDF com os dados da sua conta para análises e compartilhamento.</p>
+                    
+                    <div class="dashboard-widgets">
+                        <div class="widget">
+                            <h3>Relatório de Atividades</h3>
+                            <p>Gere um relatório completo com suas estatísticas de alcance, arquivos e atividades.</p>
+                            
+                            <div class="pdf-controls">
+                                <select id="reportType">
+                                    <option value="complete">Relatório Completo</option>
+                                    <option value="reach">Apenas Alcance</option>
+                                    <option value="files">Apenas Arquivos</option>
+                                    <option value="activity">Apenas Atividades</option>
+                                </select>
+                                
+                                <select id="reportPeriod">
+                                    <option value="month">Último Mês</option>
+                                    <option value="quarter">Último Trimestre</option>
+                                    <option value="year">Último Ano</option>
+                                    <option value="all">Todo o Período</option>
+                                </select>
+                            </div>
+                            
+                            <button class="btn-cadastrar" onclick="generateCustomPDF()">Gerar Relatório PDF</button>
+                        </div>
+                        
+                        <div class="widget">
+                            <h3>Relatórios Rápidos</h3>
+                            <p>Gere relatórios específicos rapidamente.</p>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <button class="btn-cadastrar" onclick="generateQuickReport('followers')">
+                                    📊 Relatório de Seguidores
+                                </button>
+                                <button class="btn-cadastrar" onclick="generateQuickReport('engagement')">
+                                    💬 Relatório de Engajamento
+                                </button>
+                                <button class="btn-cadastrar" onclick="generateQuickReport('storage')">
+                                    💾 Relatório de Armazenamento
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="widget">
+                            <h3>Histórico de Relatórios</h3>
+                            <div class="file-list">
+                                <div style="padding: 10px; background-color: #4a4a4a; border-radius: 5px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                                    <span>relatorio_completo_2025-08-25.html</span>
+                                    <a href="#" style="color: #4CAF50;">Baixar</a>
+                                </div>
+                                <div style="padding: 10px; background-color: #4a4a4a; border-radius: 5px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                                    <span>relatorio_alcance_2025-08-20.html</span>
+                                    <a href="#" style="color: #4CAF50;">Baixar</a>
+                                </div>
+                                <div style="padding: 10px; background-color: #4a4a4a; border-radius: 5px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                                    <span>relatorio_arquivos_2025-08-15.html</span>
+                                    <a href="#" style="color: #4CAF50;">Baixar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2025 artSync. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Função para gerar relatório personalizado
+        window.generateCustomPDF = function() {
+            const reportType = document.getElementById('reportType').value;
+            const reportPeriod = document.getElementById('reportPeriod').value;
+            
+            // Simula dados baseados nas seleções
+            const userData = {
+                nome: 'Usuário artSync',
+                email: 'usuario@artsync.com',
+                tipo: reportType,
+                periodo: reportPeriod,
+                seguidores: '2.5K',
+                engajamento: '15.8%',
+                posts: '342',
+                arquivos: [
+                    'Documento_Artista.pdf',
+                    'Portifolio_2024.zip',
+                    'Musica_Nova.mp3',
+                    'Contrato_Show.docx'
+                ]
+            };
+
+            let content = '';
+            
+            switch(reportType) {
+                case 'complete':
+                    content = generateCompleteReport(userData);
+                    break;
+                case 'reach':
+                    content = generateReachReport(userData);
+                    break;
+                case 'files':
+                    content = generateFilesReport(userData);
+                    break;
+                case 'activity':
+                    content = generateActivityReport(userData);
+                    break;
+            }
+
+            downloadReport(content, `relatorio_${reportType}_${new Date().toISOString().split('T')[0]}.html`);
+        };
+
+        // Função para gerar relatórios rápidos
+        window.generateQuickReport = function(type) {
+            const userData = {
+                nome: 'Usuário artSync',
+                email: 'usuario@artsync.com'
+            };
+
+            let content = '';
+            let filename = '';
+
+            switch(type) {
+                case 'followers':
+                    content = generateFollowersReport(userData);
+                    filename = `relatorio_seguidores_${new Date().toISOString().split('T')[0]}.html`;
+                    break;
+                case 'engagement':
+                    content = generateEngagementReport(userData);
+                    filename = `relatorio_engajamento_${new Date().toISOString().split('T')[0]}.html`;
+                    break;
+                case 'storage':
+                    content = generateStorageReport(userData);
+                    filename = `relatorio_armazenamento_${new Date().toISOString().split('T')[0]}.html`;
+                    break;
+            }
+
+            downloadReport(content, filename);
+        };
+
+        // Funções auxiliares para gerar diferentes tipos de relatório
+        function generateCompleteReport(userData) {
+            return `
+                <html>
+                <head>
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; color: #333; }
+                        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #4CAF50; padding-bottom: 10px; }
+                        .section { margin-bottom: 25px; }
+                        .section h2 { color: #4CAF50; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+                        .stats-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+                        .stats-table th, .stats-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                        .stats-table th { background-color: #f2f2f2; }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>artSync - Relatório Completo</h1>
+                        <p>Período: ${userData.periodo} | Gerado em: ${new Date().toLocaleDateString('pt-BR')}</p>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>Resumo Executivo</h2>
+                        <p>Este relatório apresenta uma visão completa das atividades e métricas do usuário ${userData.nome} na plataforma artSync.</p>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>Métricas de Alcance</h2>
+                        <table class="stats-table">
+                            <tr><th>Métrica</th><th>Valor</th></tr>
+                            <tr><td>Seguidores</td><td>${userData.seguidores}</td></tr>
+                            <tr><td>Taxa de Engajamento</td><td>${userData.engajamento}</td></tr>
+                            <tr><td>Posts</td><td>${userData.posts}</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>Arquivos e Conteúdo</h2>
+                        <p>Total de arquivos: ${userData.arquivos.length}</p>
+                        <ul>
+                            ${userData.arquivos.map(arquivo => `<li>${arquivo}</li>`).join('')}
+                        </ul>
+                    </div>
+                </body>
+                </html>
+            `;
+        }
+
+        function generateFollowersReport(userData) {
+            return `
+                <html>
+                <head><style>body { font-family: Arial, sans-serif; margin: 20px; }</style></head>
+                <body>
+                    <h1>Relatório de Seguidores - artSync</h1>
+                    <p>Análise detalhada do crescimento de seguidores</p>
+                    <h2>Crescimento Mensal</h2>
+                    <p>Janeiro: 1,200 | Fevereiro: 1,350 | Março: 1,500</p>
+                    <p>Abril: 1,800 | Maio: 2,000 | Junho: 2,200</p>
+                    <p>Julho: 2,300 | Agosto: 2,400 | Setembro: 2,500</p>
+                </body>
+                </html>
+            `;
+        }
+
+        function generateEngagementReport(userData) {
+            return `
+                <html>
+                <head><style>body { font-family: Arial, sans-serif; margin: 20px; }</style></head>
+                <body>
+                    <h1>Relatório de Engajamento - artSync</h1>
+                    <p>Análise das taxas de engajamento por período</p>
+                    <h2>Taxa de Engajamento Mensal</h2>
+                    <p>Janeiro: 12.5% | Fevereiro: 14.2% | Março: 13.8%</p>
+                    <p>Abril: 15.1% | Maio: 16.3% | Junho: 15.8%</p>
+                    <p>Julho: 17.2% | Agosto: 16.9% | Setembro: 15.8%</p>
+                </body>
+                </html>
+            `;
+        }
+
+        function generateStorageReport(userData) {
+            return `
+                <html>
+                <head><style>body { font-family: Arial, sans-serif; margin: 20px; }</style></head>
+                <body>
+                    <h1>Relatório de Armazenamento - artSync</h1>
+                    <p>Análise do uso de armazenamento e arquivos</p>
+                    <h2>Arquivos por Categoria</h2>
+                    <p>Documentos: 2 arquivos</p>
+                    <p>Áudio: 1 arquivo</p>
+                    <p>Compactados: 1 arquivo</p>
+                    <h2>Espaço Utilizado</h2>
+                    <p>Total: 45.2 MB de 1 GB (4.5% utilizado)</p>
+                </body>
+                </html>
+            `;
+        }
+
+        function downloadReport(content, filename) {
+            const blob = new Blob([content], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+            alert('Relatório gerado e baixado com sucesso!');
+        }
+    </script>
+</body>
+</html>
+

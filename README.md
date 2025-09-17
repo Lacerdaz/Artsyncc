@@ -123,7 +123,7 @@ Acesse a Aplicação:
 
 Com o Apache e o MySQL ativos, abra seu navegador.
 
-Acesse http://localhost/artsyncc-main/.
+Acesse [http://localhost/artsyncc-main/artsync/](http://localhost/artsyncc-main/artsync/).
 
 Utilização:
 

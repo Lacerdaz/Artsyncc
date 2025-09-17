@@ -1,0 +1,326 @@
+/* =================================== */
+/* LAYOUT PRINCIPAL DO PAINEL          */
+/* =================================== */
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.main-header h2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.main-header p {
+    color: var(--secondary-color);
+    font-size: 1.1em;
+}
+
+/* =================================== */
+/* SIDEBAR (MENU LATERAL)              */
+/* =================================== */
+.sidebar {
+    width: 250px;
+    background: var(--container-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.sidebar .logo {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 1.8em;
+    letter-spacing: 2px;
+}
+
+.sidebar nav ul { list-style: none; }
+.sidebar nav li { margin-bottom: 10px; }
+
+.sidebar nav a {
+    display: block;
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sidebar nav a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--primary-color);
+    padding-left: 20px; /* Efeito de deslocamento */
+}
+
+.sidebar nav li.active a {
+    background-color: var(--primary-color);
+    color: #000000; /* Texto preto para o item ativo */
+    font-weight: 700;
+}
+
+
+/* =================================== */
+/* RODAPÉ DO SIDEBAR (NOTIFICAÇÃO/SAIR)*/
+/* =================================== */
+.sidebar-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+#notification-bell {
+    font-size: 1.5em;
+    cursor: pointer;
+    position: relative;
+    color: var(--secondary-color);
+    transition: color 0.2s ease;
+}
+#notification-bell:hover { color: var(--primary-color); }
+
+.notification-dropdown {
+    background-color: #2a2b2e; /* Fundo mais escuro para o dropdown */
+    border: 1px solid var(--border-color);
+}
+
+.btn-logout {
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid var(--error-color);
+    border-radius: 5px;
+    background: transparent;
+    color: var(--error-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+    background-color: var(--error-color);
+    color: white;
+}
+
+
+/* =================================== */
+/* CARDS E WIDGETS INTERATIVOS         */
+/* =================================== */
+.widgets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.widget, .card {
+    background: var(--container-bg);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.widget:hover, .card:hover {
+    transform: translateY(-5px); /* Efeito de elevação */
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.widget h3, .card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.widget p, .card p {
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
+/* =============================================== */
+/* ESTILOS CORRIGIDOS E ADAPTADOS PARA A PÁGINA DE IA */
+/* =============================================== */
+
+.gemini-style-card {
+    background-color: var(--container-bg);
+}
+
+/* Bolha de diálogo base */
+.chat-bubble {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+/* Formulário de pergunta do usuário */
+.user-bubble-form {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background-color: #2a2b2e; /* Um cinza um pouco mais escuro para contraste */
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+.user-bubble-form form {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+}
+.user-bubble-form textarea {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1em;
+    resize: none;
+    font-family: 'Roboto', sans-serif;
+    height: 24px;
+    max-height: 100px;
+    overflow-y: auto;
+}
+.user-bubble-form textarea:focus {
+    outline: none;
+}
+.user-bubble-form button {
+    background-color: var(--primary-color);
+    color: var(--background-color); /* Cor do ícone será o preto do fundo */
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+.user-bubble-form button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Histórico da conversa */
+.conversation-history {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.user-bubble {
+    background-color: transparent; /* A pergunta do usuário não precisa de fundo */
+}
+.ai-bubble {
+    background-color: transparent;
+}
+.chat-bubble p {
+    margin: 0;
+    padding-top: 8px; /* Alinha o texto com o meio do avatar */
+    line-height: 1.6;
+    white-space: pre-wrap;
+    color: var(--text-color);
+}
+
+/* Avatares */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1em;
+    flex-shrink: 0;
+}
+.user-avatar {
+    background-color: var(--border-color);
+    color: var(--primary-color);
+}
+.ai-avatar {
+    background: var(--primary-color);
+    color: var(--background-color); /* Inverte as cores */
+    font-size: 1.5em;
+}
+
+/* Spinner (mantém o que já tínhamos) */
+.spinner-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.spinner {
+    border: 4px solid #444;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* =================================== */
+/* ESTILOS PARA FORMULÁRIOS DENTRO DE CARDS */
+/* (Corrige a página de Agenda)          */
+/* =================================== */
+.card form .input-group {
+    margin-bottom: 20px;
+}
+.card form label {
+    display: block;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.card form input[type="text"],
+.card form input[type="datetime-local"],
+.card form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.2s ease;
+}
+.card form input[type="text"]:focus,
+.card form input[type="datetime-local"]:focus,
+.card form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #000;
+}
+
+/* ESTILO PARA O GRÁFICO */
+.chart-container {
+    margin-bottom: 25px;
+}
+
+/* Faz o card inteiro funcionar como um link */
+.widget-link {
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: inherit; /* Faz o texto herdar a cor normal */
+}
+
